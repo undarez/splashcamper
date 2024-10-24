@@ -1,11 +1,21 @@
 import { useState } from "react";
 
 export const useAuthForm = () => {
+  // États pour le formulaire d'authentification
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [captchaValue, setCaptchaValue] = useState("");
 
+  // États pour le formulaire de profil
+  const [name, setName] = useState("");
+  const [city, setCity] = useState("");
+  const [department, setDepartment] = useState("");
+  const [age, setAge] = useState("");
+  const [camperModel, setCamperModel] = useState("");
+  const [usageFrequency, setUsageFrequency] = useState("");
+
+  // Gestion des changements pour les champs d'authentification
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
   };
@@ -24,11 +34,38 @@ export const useAuthForm = () => {
     }
   };
 
+  // Gestion des changements pour les champs du profil
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value);
+  };
+
+  const handleCityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCity(e.target.value);
+  };
+
+  const handleDepartmentChange = (value: string) => {
+    setDepartment(value);
+  };
+
+  const handleAgeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setAge(e.target.value);
+  };
+
+  const handleCamperModelChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCamperModel(e.target.value);
+  };
+
+  const handleUsageFrequencyChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUsageFrequency(e.target.value);
+  };
+
+  // Validation des mots de passe
   const validatePasswords = () => {
     return password === confirmPassword;
   };
 
   return {
+    // États pour l'authentification
     email,
     password,
     confirmPassword,
@@ -38,5 +75,19 @@ export const useAuthForm = () => {
     handleConfirmPasswordChange,
     handleCaptchaChange,
     validatePasswords,
+
+    // États pour le profil
+    name,
+    city,
+    department,
+    age,
+    camperModel,
+    usageFrequency,
+    handleNameChange,
+    handleCityChange,
+    handleDepartmentChange,
+    handleAgeChange,
+    handleCamperModelChange,
+    handleUsageFrequencyChange,
   };
 };

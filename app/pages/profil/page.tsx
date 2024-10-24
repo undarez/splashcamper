@@ -1,5 +1,6 @@
 "use client";
 import { useSession } from "next-auth/react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -43,8 +44,9 @@ const Page = () => {
               <Label htmlFor="email">Email</Label>
               <Input id="email" type="email" value={session?.user?.email || ""} disabled />
             </div>
-
+            <Link href="/pages/profil/editprofil">
             <Button variant="destructive">Modifier le profil</Button>
+            </Link>
           </div>
         </CardContent>
       </Card>
