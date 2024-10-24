@@ -49,7 +49,7 @@ const EditProfil = () => {
     const { id, value } = e.target;
     setUserData((prevData) => ({
       ...prevData,
-      [id]: value,
+      [id]: id ==='age' ? parseInt(value) : value,
     }));
   };
 

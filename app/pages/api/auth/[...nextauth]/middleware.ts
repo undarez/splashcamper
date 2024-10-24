@@ -1,1 +1,0 @@
-// export { auth as middleware } from "@/app/pages/auth/auth"

@@ -8,8 +8,7 @@ const prisma = new PrismaClient();
 // Interface pour les données du profil
 interface UserProfileData {
   name: string;
-  city?: string;
-  department?: string;
+  // department?: string;
   age?: number;
   camperModel?: string;
   usageFrequency?: string;
@@ -24,7 +23,7 @@ export async function POST(req: Request) {
 
   try {
     const body: UserProfileData = await req.json();
-    const { name, city, department, age, camperModel, usageFrequency } = body;
+    const { name,  age, camperModel, usageFrequency } = body;
 
     const ageNumber = age !== undefined ? parseInt(age.toString(), 10) : undefined;
 
@@ -32,8 +31,6 @@ export async function POST(req: Request) {
       where: { email: session.user.email },
       data: {
         name,
-        city,
-        department,
         age: ageNumber,
         camperModel,
         usageFrequency,

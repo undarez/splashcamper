@@ -9,8 +9,7 @@ export const useAuthForm = () => {
 
   // États pour le formulaire de profil
   const [name, setName] = useState("");
-  const [city, setCity] = useState("");
-  const [department, setDepartment] = useState("");
+  // const [department, setDepartment] = useState("");
   const [age, setAge] = useState("");
   const [camperModel, setCamperModel] = useState("");
   const [usageFrequency, setUsageFrequency] = useState("");
@@ -39,13 +38,11 @@ export const useAuthForm = () => {
     setName(e.target.value);
   };
 
-  const handleCityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCity(e.target.value);
-  };
 
-  const handleDepartmentChange = (value: string) => {
-    setDepartment(value);
-  };
+
+  // const handleDepartmentChange = (value: string) => {
+  //   setDepartment(value);
+  // };
 
   const handleAgeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAge(e.target.value);
@@ -78,14 +75,12 @@ export const useAuthForm = () => {
 
     // États pour le profil
     name,
-    city,
-    department,
+    // department,
     age,
     camperModel,
     usageFrequency,
     handleNameChange,
-    handleCityChange,
-    handleDepartmentChange,
+    // handleDepartmentChange,
     handleAgeChange,
     handleCamperModelChange,
     handleUsageFrequencyChange,
